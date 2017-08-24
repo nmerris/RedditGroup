@@ -2,26 +2,96 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Add a post</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Add a Post</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="../../css/carousel.css">
 </head>
 <body>
-<form action="#" th:action="@{/newpost}" th:object="${newPost}" method="post">
-    <input type="hidden" th:field="*{id}"/>
-    <label>Post Title:</label>
-    <input type="text" th:field="*{postTitle}"/>
-    <p th:if="${#fields.hasErrors('postTitle')}" th:errors="*{postTitle}"></p>
-    <label>Screen Name:</label>
-    <input type="text" th:field="*{screenName}"/>
-    <p th:if="${#fields.hasErrors('screenName')}" th:errors="*{screenName}"></p>
-    <label>Url:</label>
-    <input type="text" th:field="*{url}" placeholder="http://"/>
-    <p th:if="${#fields.hasErrors('url')}" th:errors="*{url}" ></p>
-    <label>Description:</label>
-    <input type="text" th:field="*{description}"/>
-    <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
-    <input class="btn btn-md" type="submit" value="Submit"/>
-</form>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="first-slide" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Reddit_logo.svg/2000px-Reddit_logo.svg.png" alt="First slide">
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <form action="#" th:action="@{/newpost}" th:object="${newPost}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+
+        <div class="form-group row">
+            <label for="inputtitle" class="col-sm-2 col-form-label">Post Title</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{postTitle}" class="form-control" id="inputtitle">
+                <p th:if="${#fields.hasErrors('postTitle')}" th:errors="*{postTitle}"></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputname" class="col-sm-2 col-form-label">Screen Name</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{screenName}" class="form-control" id="inputname" >
+                <p th:if="${#fields.hasErrors('screenName')}" th:errors="*{screenName}"></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputurl" class="col-sm-2 col-form-label">URL</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{url}" class="form-control" id="inputurl" placeholder="http://">
+                <p th:if="${#fields.hasErrors('url')}" th:errors="*{url}"></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputdescription" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input type="text" th:field="*{description}" class="form-control" id="inputdescription" >
+                <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+
+
+
+<!--Bootstrape 4.0 core JavaScript-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 </body>
 </html>
+
+<!--<form action="#" th:action="@{/newpost}" th:object="${newPost}" method="post">-->
+    <!--<input type="hidden" th:field="*{id}"/>-->
+    <!--<label>Post Title:</label>-->
+    <!--<input type="text" th:field="*{postTitle}"/>-->
+    <!--<p th:if="${#fields.hasErrors('postTitle')}" th:errors="*{postTitle}"></p>-->
+    <!--<label>Screen Name:</label>-->
+    <!--<input type="text" th:field="*{screenName}"/>-->
+    <!--<p th:if="${#fields.hasErrors('screenName')}" th:errors="*{screenName}"></p>-->
+    <!--<label>Url:</label>-->
+    <!--<input type="text" th:field="*{url}" placeholder="http://"/>-->
+    <!--<p th:if="${#fields.hasErrors('url')}" th:errors="*{url}" ></p>-->
+    <!--<label>Description:</label>-->
+    <!--<input type="text" th:field="*{description}"/>-->
+    <!--<p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>-->
+    <!--<input class="btn btn-md" type="submit" value="Submit"/>-->
+<!--</form>-->

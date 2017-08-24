@@ -17,7 +17,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
                 // anyone can see the default route, in real life a customer would just go straight to the purchase page
                 // just keeping it all in one place for testing, and because this is a learning experience
-                .antMatchers("/", "/allposts").permitAll()
+                .antMatchers("/", "/allposts", "/css/**", "/js/**").permitAll()
 
                 // customer can also see the purchaseproduct page route, and therefore also will be able to see the
                 // receipt/confirmation page, which is just a diff view in same route
