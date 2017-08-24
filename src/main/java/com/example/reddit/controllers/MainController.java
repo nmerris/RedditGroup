@@ -2,6 +2,7 @@ package com.example.reddit.controllers;
 
 import com.example.reddit.models.Post;
 import com.example.reddit.repositories.PostRepository;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,10 +46,20 @@ public class MainController {
     }
 
     @GetMapping("/userposts")
-    public String userPosts()
+    public String userPosts(Model model)
+    {
+        model.addAttribute("stringToGetBack", new String());
+       return "userposts";
+    }
+
+    @PostMapping("/userposts")
+    public String findPosts(Model model, @ModelAttribute ("stringToGetBack")String searchname)
     {
 
-       return "userposts";
+        model.addAttribute("userpostList", postRepo.findAllByScreenNameIs(searchname));
+        System.out.println("#######################################################" + searchname);
+
+        return "userposts";
     }
 
     @RequestMapping("/allposts")
