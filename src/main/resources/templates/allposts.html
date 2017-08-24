@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
     <title>All posts</title>
 </head>
 <body>
+<table>
+    <thead>
+    <tr>
+        <td>Post Title</td>
+        <td>Screen Name</td>
+        <td>Url</td>
+        <td>Description</td>
+        <td>Date</td>
+    </tr>
+    </thead>
+
+    <th:block th:each="item:${postList}">
+        <tbody>
+        <tr>
+            <td><p th:text="${item.postTitle}"/></td>
+            <td><p th:text="${item.screenName}"/></td>
+            <td><p th:text="${item.url}"/></td>
+            <td><p th:text="${item.description}"/></td>
+            <td><p th:text="${#dates.format(item.date, 'MMM dd, yyyy')}"/></td>
+        </tr>
+        </tbody>
+    </th:block>
+</table>
 
 </body>
 </html>
