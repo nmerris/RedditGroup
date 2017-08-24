@@ -1,8 +1,13 @@
 package com.example.reddit.models;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.URL;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+
 import java.util.Date;
 
 @Entity
@@ -12,9 +17,14 @@ public class Post {
     @GeneratedValue
     private long id;
 
+    @NotEmpty
     private String postTitle;
+    @NotEmpty
     private String screenName;
+    @NotEmpty
+    @URL
     private String url;
+    @NotEmpty
     private String description;
     private Date date;
 

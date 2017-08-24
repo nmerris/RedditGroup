@@ -6,8 +6,10 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Date;
 
 @Controller
@@ -35,11 +37,16 @@ public class MainController {
     }
 
     @PostMapping("/newpost")
-    public String processPost(@ModelAttribute ("newPost") Post post)
+    public String processPost(@Valid @ModelAttribute ("newPost") Post post, BindingResult result, Model model)
     {
+        if(result.hasErrors())
+        {
+            return "newpost";
+        }
         post.setDate(new Date());
         postRepo.save(post);
-        return "newpost";
+        model.addAttribute("postList",postRepo.findAllByOrderByDateDesc());
+        return "allposts";
     }
 
     @GetMapping("/userposts")
@@ -61,7 +68,10 @@ public class MainController {
     @RequestMapping("/allposts")
     public String allPosts(Model model)
     {
-        model.addAttribute("postList",postRepo.findAll());
+
+
+        model.addAttribute("postList",postRepo.findAllByOrderByDateDesc());
+
         return "allposts";
     }
 

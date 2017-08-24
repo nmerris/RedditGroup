@@ -15,8 +15,8 @@
     <input type="text" th:field="*{screenName}"/>
     <p th:if="${#fields.hasErrors('screenName')}" th:errors="*{screenName}"></p>
     <label>Url:</label>
-    <input type="text" th:field="*{url}"/>
-    <p th:if="${#fields.hasErrors('url')}" th:errors="*{url}"></p>
+    <input type="text" th:field="*{url}" placeholder="http://"/>
+    <p th:if="${#fields.hasErrors('url')}" th:errors="*{url}" ></p>
     <label>Description:</label>
     <input type="text" th:field="*{description}"/>
     <p th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>

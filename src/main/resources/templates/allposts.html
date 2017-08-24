@@ -21,7 +21,10 @@
         <tr>
             <td><p th:text="${item.postTitle}"/></td>
             <td><p th:text="${item.screenName}"/></td>
-            <td><p th:text="${item.url}"/></td>
+            <td><a th:href="@{${item.url}}"><p th:text="${item.url}"/></a></td>
+            <!--<a th:href="@{${detailsURL}(id=${order.id})}">-->
+
+            <!--<td><p th:text="${item.url}"/></td>-->
             <td><p th:text="${item.description}"/></td>
             <td><p th:text="${#dates.format(item.date, 'MMM dd, yyyy')}"/></td>
         </tr>
