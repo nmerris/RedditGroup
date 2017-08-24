@@ -5,12 +5,12 @@
     <title>Your posts</title>
 </head>
 <body>
-<form action="#" th:action="@{/userposts}"  method="post">
+<form action="#" th:action="@{/userposts}" method="post">
 
     <label>Search by Screenname: </label>
-    <input type="text" th:field="${stringToGetBack}"/>
+    <input type="text" name="screennametosearch"/>
 
-    <input class="btn btn-md" type="submit" value="Submit"/>
+    <input type="submit" value="Submit"/>
 </form>
 </body>
 </html>

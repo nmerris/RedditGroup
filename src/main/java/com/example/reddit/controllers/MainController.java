@@ -6,10 +6,7 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -48,18 +45,17 @@ public class MainController {
     @GetMapping("/userposts")
     public String userPosts(Model model)
     {
-        model.addAttribute("stringToGetBack", new String());
        return "userposts";
     }
 
     @PostMapping("/userposts")
-    public String findPosts(Model model, @ModelAttribute ("stringToGetBack")String searchname)
+    public String findPosts(Model model, @RequestParam("screennametosearch")String searchname)
     {
 
-        model.addAttribute("userpostList", postRepo.findAllByScreenNameIs(searchname));
-        System.out.println("#######################################################" + searchname);
+        model.addAttribute("postList", postRepo.findAllByScreenNameIs(searchname));
+//        System.out.println("#######################################################" + searchname);
 
-        return "userposts";
+        return "allposts";
     }
 
     @RequestMapping("/allposts")
