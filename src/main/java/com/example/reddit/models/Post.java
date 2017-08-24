@@ -13,7 +13,7 @@ public class Post {
     private long id;
 
     private String postTitle;
-    private String name;
+    private String screenName;
     private String url;
     private String description;
     private Date date;
@@ -35,12 +35,12 @@ public class Post {
         this.postTitle = postTitle;
     }
 
-    public String getName() {
-        return name;
+    public String getScreenName() {
+        return screenName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setScreenName(String screenName) {
+        this.screenName = screenName;
     }
 
     public String getUrl() {
